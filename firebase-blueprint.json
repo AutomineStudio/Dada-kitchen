@@ -1,0 +1,101 @@
+{
+  "entities": {
+    "users": {
+      "title": "User Profiles",
+      "description": "User accounts in Dada Kitchen",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "city": { "type": "string" },
+        "deliveryAddress": { "type": "string" },
+        "avatar": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["fullName", "phone"]
+    },
+    "dadas": {
+      "title": "Dadas",
+      "description": "Home chefs (Dadas) list",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "avatar": { "type": "string" },
+        "specialty": { "type": "string" },
+        "rating": { "type": "number" },
+        "experienceYears": { "type": "number" },
+        "location": { "type": "string" },
+        "bio": { "type": "string" },
+        "availableDays": { "type": "array" }
+      },
+      "required": ["name", "specialty", "rating"]
+    },
+    "traiteurs": {
+      "title": "Traiteurs",
+      "description": "Professional event caterers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "avatar": { "type": "string" },
+        "specialty": { "type": "string" },
+        "rating": { "type": "number" },
+        "experienceYears": { "type": "number" },
+        "location": { "type": "string" },
+        "bio": { "type": "string" },
+        "availableDays": { "type": "array" }
+      },
+      "required": ["name", "specialty"]
+    },
+    "menuItems": {
+      "title": "Menu Items",
+      "description": "Dishes and catering menu options",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "dadaId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "image": { "type": "string" },
+        "category": { "type": "string" },
+        "dayOfWeek": { "type": "string" },
+        "remainingQuantity": { "type": "number" }
+      },
+      "required": ["name", "price", "dadaId"]
+    },
+    "addresses": {
+      "title": "Addresses",
+      "description": "User delivery address book",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "fullAddress": { "type": "string" },
+        "type": { "type": "string" },
+        "isDefault": { "type": "boolean" }
+      },
+      "required": ["fullAddress", "name"]
+    },
+    "orders": {
+      "title": "Orders",
+      "description": "User meal and catering orders",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "date": { "type": "string" },
+        "deliverySlot": { "type": "string" },
+        "items": { "type": "array" },
+        "totalPrice": { "type": "number" },
+        "status": { "type": "string" },
+        "dadaName": { "type": "string" },
+        "dadaAvatar": { "type": "string" }
+      },
+      "required": ["items", "totalPrice", "status"]
+    }
+  }
+}
